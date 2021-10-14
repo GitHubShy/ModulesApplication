@@ -1,0 +1,18 @@
+ext {
+
+    android = [
+        compileSdkVersion:31,
+        minSdkVersion:21,
+        targetSdkVersion:31,
+        applicationId: "com.modules.application",
+        versionCodeVersion:1,
+        versionNameVersion:"1.0",
+    ]
+
+
+    dependencies = [
+
+    ]
+
+
+}
