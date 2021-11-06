@@ -1,0 +1,49 @@
+plugins {
+    id 'com.android.library'
+}
+
+android {
+
+    compileSdkVersion rootProject.ext.android["compileSdkVersion"]
+
+
+    defaultConfig {
+        minSdk rootProject.ext.android.minSdkVersion
+        targetSdk rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.android.versionCodeVersion
+        versionName rootProject.ext.android.versionNameVersion
+
+    }
+
+    buildTypes {
+        release {
+            // 单双引号的写法，最简洁不用转义，推荐该写法
+            buildConfigField 'String', 'string3', '"aaaa"'
+            buildConfigField 'String', 'string4', '"bbb"'
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            // 单双引号的写法，最简洁不用转义，推荐该写法
+            buildConfigField 'String', 'string3', rootProject.ext.projectConfigrues["testString"]
+            buildConfigField 'String', 'string4', rootProject.ext.projectConfigrues["testUrl"]
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+
+    api rootProject.ext.dependencies["androidx-appcompat-v7"]
+    api rootProject.ext.dependencies["androidx-constrainlayout"]
+    api rootProject.ext.dependencies["logger"]
+    api rootProject.ext.dependencies["material"]
+
+
+}
