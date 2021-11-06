@@ -44,6 +44,7 @@ dependencies {
     api rootProject.ext.dependencies["androidx-constrainlayout"]
     api rootProject.ext.dependencies["logger"]
     api rootProject.ext.dependencies["material"]
+    api rootProject.ext.dependencies["glide"]
 
 
 }
