@@ -10,8 +10,7 @@ ext {
     ]
 
     projectConfigrues = [
-            "testString":'"Come from config.gradle"',
-            "testUrl":'"https://blog.csdn.net/androidforme/article/details/88068532"'
+            "app_external_dir_root":'"/FotoPlay"',
     ]
 
     version = [
@@ -47,6 +46,14 @@ ext {
 
             //https://github.com/orhanobut/logger
             "logger"                            : 'com.orhanobut:logger:2.2.0',
+            //https://github.com/ZhaoKaiQiang/KLog
+            "klog"                              :'com.github.zhaokaiqiang.klog:library:1.6.0',
+
+            //https://github.com/google/gson
+            "gson"                              :'com.google.code.gson:gson:2.8.2',
+
+            //https://github.com/Blankj/AndroidUtilCode
+            "utils"                              :'com.blankj:utilcodex:1.30.6'
 
     ]
 

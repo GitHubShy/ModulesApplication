@@ -16,6 +16,15 @@ android {
 
     buildTypes {
         release {
+            // 单双引号的写法，最简洁不用转义，推荐该写法
+            buildConfigField 'String', 'APP_EXTERNAL_ROOT_DIR', '"aaaa"'
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            // 单双引号的写法，最简洁不用转义，推荐该写法
+            buildConfigField 'String', 'APP_EXTERNAL_ROOT_DIR', rootProject.ext.projectConfigrues["app_external_dir_root"]
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }

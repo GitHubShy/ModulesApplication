@@ -24,9 +24,6 @@ android {
         }
 
         debug {
-            // 单双引号的写法，最简洁不用转义，推荐该写法
-            buildConfigField 'String', 'string3', rootProject.ext.projectConfigrues["testString"]
-            buildConfigField 'String', 'string4', rootProject.ext.projectConfigrues["testUrl"]
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
