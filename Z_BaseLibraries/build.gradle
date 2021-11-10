@@ -55,7 +55,7 @@ dependencies {
     api rootProject.ext.dependencies["firebase-firestore"]
     api rootProject.ext.dependencies["firebase-crashlytics"]
 
-    api files('libs/app-debug.aar')
+    api fileTree(include: ['*.aar'], dir: 'libs')
 
 
     annotationProcessor rootProject.ext.dependencies["glideAnnotationProcessor"]

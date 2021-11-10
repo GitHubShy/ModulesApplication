@@ -5,7 +5,7 @@ import android.os.Bundle;
 
 import com.google.firebase.analytics.FirebaseAnalytics;
 
-public class Firebase {
+public class StatisticsManager {
 
     private static FirebaseAnalytics mFirebaseAnalytics = null;
 
@@ -13,11 +13,12 @@ public class Firebase {
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(context);
     }
 
-    public static void sendStatistics(String info, String msg) {
-        Bundle bundle = new Bundle();
-        bundle.putString(info, msg);
-        mFirebaseAnalytics.logEvent("Event_Click_Fotoplay", bundle);
+    public static void sendStatistics(String eventName, String key, String value) {
+        if (mFirebaseAnalytics != null) {
+            Bundle bundle = new Bundle();
+            bundle.putString(key, value);
+            mFirebaseAnalytics.logEvent(eventName, bundle);
+        }
+
     }
-
-
 }

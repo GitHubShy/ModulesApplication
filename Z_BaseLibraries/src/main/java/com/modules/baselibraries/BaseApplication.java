@@ -9,7 +9,12 @@ public class BaseApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+
+        //Log
         LogManager.init();
-        LogManager.d(new Test().stringFromJNI());
+
+        //统计信息
+        StatisticsManager.init(getApplicationContext());
+
     }
 }

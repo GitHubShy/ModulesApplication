@@ -4,12 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.TextView;
 
 import com.modules.b_editormodule.TestActivity;
-import com.modules.baselibraries.BuildConfig;
-import com.modules.baselibraries.LogManager;
-import com.modules.basemodule.Configuration;
-import com.orhanobut.logger.Logger;
+import com.modules.testjni.Test;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,7 +15,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        LogManager.d(new Configuration());
+        TextView tv = findViewById(R.id.text);
+        tv.setText(new Test().stringFromJNI());
         findViewById(R.id.go).setOnClickListener(view -> {
             startActivity(new Intent(MainActivity.this, TestActivity.class));
         });
