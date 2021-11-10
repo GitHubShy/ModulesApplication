@@ -45,6 +45,15 @@ dependencies {
     api rootProject.ext.dependencies["klog"]
     api rootProject.ext.dependencies["gson"]
 
+    //firebase
+    api platform(rootProject.ext.dependencies["firebase-bom"])
+    api rootProject.ext.dependencies["firebase-functions"]
+    api rootProject.ext.dependencies["firebase-analytics"]
+    api rootProject.ext.dependencies["firebase-storage"]
+    api rootProject.ext.dependencies["firebase-config"]
+    api rootProject.ext.dependencies["firebase-firestore"]
+    api rootProject.ext.dependencies["firebase-crashlytics"]
+
     annotationProcessor rootProject.ext.dependencies["glideAnnotationProcessor"]
 
 

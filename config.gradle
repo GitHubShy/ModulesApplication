@@ -53,8 +53,17 @@ ext {
             "gson"                              :'com.google.code.gson:gson:2.8.2',
 
             //https://github.com/Blankj/AndroidUtilCode
-            "utils"                              :'com.blankj:utilcodex:1.30.6'
+            "utils"                             :'com.blankj:utilcodex:1.30.6',
 
+            //firebase相关
+            //https://firebase.google.com/docs
+            "firebase-bom"                       :'com.google.firebase:firebase-bom:28.4.0',
+            "firebase-functions"                 :'com.google.firebase:firebase-functions',
+            "firebase-analytics"                 :'com.google.firebase:firebase-analytics',
+            "firebase-storage"                   :'com.google.firebase:firebase-storage',
+            "firebase-config"                    :'com.google.firebase:firebase-config',
+            "firebase-firestore"                 :'com.google.firebase:firebase-firestore',
+            "firebase-crashlytics"               :'com.google.firebase:firebase-crashlytics',
     ]
 
 
