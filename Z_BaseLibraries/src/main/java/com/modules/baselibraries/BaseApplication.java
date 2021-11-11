@@ -1,13 +1,12 @@
 package com.modules.baselibraries;
 
-import android.app.Application;
-import android.util.Log;
 
-import com.modules.testjni.Test;
-import com.tencent.mmkv.MMKV;
+import androidx.multidex.MultiDexApplication;
 
 
-public class BaseApplication extends Application {
+public class BaseApplication extends MultiDexApplication {
+
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -15,11 +14,12 @@ public class BaseApplication extends Application {
         //Log
         LogManager.init();
 
+        //SharedPreferences
+        SharedPreferencesManager.init(this);
+
         //统计信息
         StatisticsManager.init(this);
 
-        //SharedPreferences
-        SharedPreferencesManager.init(this);
 
     }
 }

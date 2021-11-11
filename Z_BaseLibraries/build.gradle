@@ -47,6 +47,11 @@ dependencies {
     api rootProject.ext.dependencies["gson"]
     api rootProject.ext.dependencies["mmkv"]
     api rootProject.ext.dependencies["utils"]
+    api rootProject.ext.dependencies["retrofit"]
+    api rootProject.ext.dependencies["retrofit-gson"]
+//    api rootProject.ext.dependencies["okhttp"]
+    api rootProject.ext.dependencies["okhttp-interceptor"]
+
 
     //firebase
     api platform(rootProject.ext.dependencies["firebase-bom"])
@@ -59,8 +64,6 @@ dependencies {
 
     api fileTree(include: ['*.aar'], dir: 'libs')
 
-
     annotationProcessor rootProject.ext.dependencies["glideAnnotationProcessor"]
-
 
 }

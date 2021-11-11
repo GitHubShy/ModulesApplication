@@ -9,8 +9,20 @@ ext {
         versionNameVersion:"1.0",
     ]
 
-    projectConfigrues = [
-            "app_external_dir_root":'"/FotoPlay"',
+    configurations = [
+            //保存文件相关目录，到底放在内部存储还是外部存储在代码里面设置，这里只写后缀
+            "app_external_dir_root":                     '"/FotoPlay/"',
+            "musics_folder":                             '"/musics/"',
+            "stickers_folder":                           '"/stickers/"',
+            "jsons_folder":                              '"/jsons/"',
+            "pics_folder":                              '"/pics/"',
+
+
+
+            //下载请求的相关路径
+            "aliyun_domain_cdn_root":                    '"http://cloud.youjia-studio.com/"',
+            "remote_config_json_suffix":                  '"fotoplay/remote/test/remote_config.json"',
+
     ]
 
     version = [
@@ -66,7 +78,16 @@ ext {
             "firebase-crashlytics"               :'com.google.firebase:firebase-crashlytics',
 
             //:https://github.com/Tencent/MMKV
-            "mmkv"                               :'com.tencent:mmkv-static:1.1.0'
+            "mmkv"                               :'com.tencent:mmkv-static:1.1.0',
+
+
+            //https://github.com/square/okhttp
+            "okhttp"                               :'com.squareup.okhttp3:okhttp:4.9.2',
+            "okhttp-interceptor"                   :'com.squareup.okhttp3:logging-interceptor:4.9.2',
+
+            //Retrofit:https://github.com/square/retrofit
+            "retrofit"                            :'com.squareup.retrofit2:retrofit:2.9.0',
+            "retrofit-gson"                        :'com.squareup.retrofit2:converter-gson:2.9.0'
 
     ]
 

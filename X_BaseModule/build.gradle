@@ -23,8 +23,19 @@ android {
         }
 
         debug {
-            // 单双引号的写法，最简洁不用转义，推荐该写法
-            buildConfigField 'String', 'APP_EXTERNAL_ROOT_DIR', rootProject.ext.projectConfigrues["app_external_dir_root"]
+
+            //单双引号的写法，最简洁不用转义，推荐该写法
+
+            buildConfigField 'String', 'APP_EXTERNAL_ROOT_DIR', rootProject.ext.configurations["app_external_dir_root"]
+            buildConfigField 'String', 'ALIYUN_REMOTE_CDN_ROOT', rootProject.ext.configurations["aliyun_domain_cdn_root"]
+            buildConfigField 'String', 'REMOTE_CONFIG_JSON', rootProject.ext.configurations["remote_config_json_suffix"]
+
+            //需要的目录的路径
+            buildConfigField 'String', 'MUSICS_FOLDER', rootProject.ext.configurations["musics_folder"]
+            buildConfigField 'String', 'STICKERS_FOLDER', rootProject.ext.configurations["stickers_folder"]
+            buildConfigField 'String', 'JSONS_FOLDER', rootProject.ext.configurations["jsons_folder"]
+            buildConfigField 'String', 'PICS_FOLDER', rootProject.ext.configurations["pics_folder"]
+
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
