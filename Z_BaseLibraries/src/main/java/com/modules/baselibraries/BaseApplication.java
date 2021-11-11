@@ -1,8 +1,10 @@
 package com.modules.baselibraries;
 
 import android.app.Application;
+import android.util.Log;
 
 import com.modules.testjni.Test;
+import com.tencent.mmkv.MMKV;
 
 
 public class BaseApplication extends Application {
@@ -14,7 +16,10 @@ public class BaseApplication extends Application {
         LogManager.init();
 
         //统计信息
-        StatisticsManager.init(getApplicationContext());
+        StatisticsManager.init(this);
+
+        //SharedPreferences
+        SharedPreferencesManager.init(this);
 
     }
 }
