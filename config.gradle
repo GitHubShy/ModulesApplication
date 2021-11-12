@@ -10,6 +10,7 @@ ext {
     ]
 
     configurations = [
+
             //保存文件相关目录，到底放在内部存储还是外部存储在代码里面设置，这里只写后缀
             "app_external_dir_root":                     '"/FotoPlay/"',
             "musics_folder":                             '"/musics/"',
@@ -17,16 +18,15 @@ ext {
             "jsons_folder":                              '"/jsons/"',
             "pics_folder":                              '"/pics/"',
 
-
-
-            //下载请求的相关路径
+            //服务器相关地址
             "aliyun_domain_cdn_root":                    '"http://cloud.youjia-studio.com/"',
             "remote_config_json_suffix":                  '"fotoplay/remote/test/remote_config.json"',
 
     ]
 
     version = [
-            glide:"4.10.0"
+            glide:"4.10.0",
+            lifecycle_version:"2.4.0",
     ]
 
 
@@ -37,6 +37,9 @@ ext {
 
             //https://developer.android.google.cn/jetpack/androidx/releases/constraintlayout?hl=zh-cn
             "androidx-constrainlayout"          : 'androidx.constraintlayout:constraintlayout:2.1.1',
+
+            //https://developer.android.com/jetpack/androidx/releases/lifecycle#declaring_dependencies
+            "androidx-lifecycle"                : "androidx.lifecycle:lifecycle-viewmodel-ktx:${version["lifecycle_version"]}",
 
             //https://developer.android.google.cn/jetpack/androidx/releases/recyclerview?hl=zh-cn
             "recyclerview"                      :'androidx.recyclerview:recyclerview:1.2.1',

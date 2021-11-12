@@ -29,8 +29,8 @@ public class MainActivity extends AppCompatActivity {
 //        tv.setText(new Test().stringFromJNI());
         tv.setText(text);
         findViewById(R.id.go).setOnClickListener(view -> {
-            //startActivity(new Intent(MainActivity.this, TestActivity.class));
-            RemoteDataRepository.download(FilePath.getInstance(this).getPicFolderPath() + "b.png");
+            startActivity(new Intent(MainActivity.this, TestActivity.class));
+            //RemoteDataRepository.download(FilePath.getInstance(this).getPicFolderPath() + "b.png");
         });
     }
 }

@@ -7,6 +7,10 @@ public class ResponseRemoteConfig {
     private String music_name;
     private String music_version;
 
+    public void setMusic_name(String music_name) {
+        this.music_name = music_name;
+    }
+
     @Override
     public String toString() {
         return "sticker_name='" + sticker_name + '\'' +

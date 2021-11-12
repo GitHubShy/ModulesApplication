@@ -44,6 +44,9 @@ public class RemoteDataRepository {
     }
 
 
+    /**获取阿里云更新JSON
+     * @param callback
+     */
     public static void getAliRemoteConfig(CommonCallback<ArrayList<ResponseRemoteConfig>> callback) {
         APIService service = retrofit.create(APIService.class);
         Call<ArrayList<ResponseRemoteConfig>> call = service.getRemoteConfig();
@@ -59,6 +62,9 @@ public class RemoteDataRepository {
         });
     }
 
+    /** 测试下载一个文件
+     * @param path
+     */
     public static void download(String path) {
         APIService service = retrofit.create(APIService.class);
         Call<ResponseBody> responseBodyCall = service.downloadFileWithDynamicUrlAsync("https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fbpic.588ku.com%2Felement_origin_min_pic%2F19%2F03%2F15%2F75076c485081d15ed9c224ad3e4ce4a1.jpg&refer=http%3A%2F%2Fbpic.588ku.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1639277891&t=8083b76a681645e0a90ba395037bc12a");
