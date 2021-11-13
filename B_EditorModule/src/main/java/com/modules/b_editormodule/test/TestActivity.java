@@ -1,9 +1,5 @@
 package com.modules.b_editormodule.test;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.os.Bundle;
@@ -12,18 +8,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.modules.b_editormodule.R;
-import com.modules.b_editormodule.activity.BaseActivity;
-import com.modules.baselibraries.LogManager;
-import com.modules.baselibraries.OkHttpClientUtils;
-import com.modules.basemodule.Configuration;
+import com.modules.basemodule.activity.BaseActivity;
 import com.modules.basemodule.http.bean.ResponseRemoteConfig;
 import com.modules.basemodule.viewmodel.RemoteData;
-
-import java.io.IOException;
-
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.Response;
 
 
 public class TestActivity extends BaseActivity {

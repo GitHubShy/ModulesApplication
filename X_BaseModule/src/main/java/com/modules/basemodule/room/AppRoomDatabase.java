@@ -1,7 +1,6 @@
-package com.modules.basemodule.room.database;
+package com.modules.basemodule.room;
 
 import android.app.Application;
-import android.content.Context;
 
 import androidx.annotation.NonNull;
 import androidx.room.Database;
@@ -47,13 +46,17 @@ public abstract class AppRoomDatabase extends RoomDatabase {
                     @Override
                     public void onCreate(@NonNull SupportSQLiteDatabase db) {
                         super.onCreate(db);
-                        LogManager.d("Database Create");
+                        String databasePath = db.getPath();
+                        int version = db.getVersion();
+                        LogManager.d("databasePath="+databasePath+";version="+version);
                     }
 
                     @Override
                     public void onOpen(@NonNull SupportSQLiteDatabase db) {
                         super.onOpen(db);
-                        LogManager.d("Database open");
+                        String databasePath = db.getPath();
+                        int version = db.getVersion();
+                        LogManager.d("databasePath="+databasePath+";version="+version);
                     }
 
                     @Override

@@ -26,4 +26,13 @@ public class Memory {
         this.pathKey = pathKey;
         this.valueKey = valueKey;
     }
+
+    @Override
+    public String toString() {
+        return "Memory{" +
+                "id=" + id +
+                ", pathKey='" + pathKey + '\'' +
+                ", valueKey='" + valueKey + '\'' +
+                '}';
+    }
 }

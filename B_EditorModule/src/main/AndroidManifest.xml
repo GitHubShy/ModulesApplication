@@ -4,6 +4,9 @@
 
     <application>
         <activity
+            android:name=".test.DatabaseTestActivity"
+            android:exported="true" />
+        <activity
             android:name=".test.TestActivity"
             android:exported="true" />
     </application>

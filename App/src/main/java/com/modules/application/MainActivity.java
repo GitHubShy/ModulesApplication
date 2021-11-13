@@ -4,11 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
+import com.modules.b_editormodule.test.DatabaseTestActivity;
 import com.modules.b_editormodule.test.TestActivity;
 import com.modules.baselibraries.LogManager;
 import com.modules.baselibraries.SharedPreferencesManager;
+import com.modules.basemodule.activity.BaseActivity;
 import com.modules.basemodule.http.CommonCallback;
 import com.modules.basemodule.http.FilePath;
 import com.modules.basemodule.http.bean.ResponseRemoteConfig;
@@ -16,7 +19,7 @@ import com.modules.basemodule.http.repository.RemoteDataRepository;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,5 +35,6 @@ public class MainActivity extends AppCompatActivity {
             startActivity(new Intent(MainActivity.this, TestActivity.class));
             //RemoteDataRepository.download(FilePath.getInstance(this).getPicFolderPath() + "b.png");
         });
+        findViewById(R.id.database).setOnClickListener(view -> startActivity(new Intent(MainActivity.this, DatabaseTestActivity.class)));
     }
 }
