@@ -22,11 +22,15 @@ ext {
             "aliyun_domain_cdn_root":                    '"http://cloud.youjia-studio.com/"',
             "remote_config_json_suffix":                  '"fotoplay/remote/test/remote_config.json"',
 
+            //数据库相关
+            "app_database_name":                         '"App"',
+
     ]
 
     version = [
             glide:"4.10.0",
             lifecycle_version:"2.4.0",
+            room:"2.3.0",
     ]
 
 
@@ -46,6 +50,10 @@ ext {
 
             //https://developer.android.google.cn/jetpack/androidx/releases/annotation?hl=zh-cn
             "annotation"                        :'androidx.annotation:annotation:1.2.0',
+
+            //https://developer.android.com/training/data-storage/room
+            "room"                             :"androidx.room:room-runtime:${version["room"]}",
+            "room-compiler"                    :"androidx.room:room-compiler:${version["room"]}",
 
             //https://developer.android.google.cn/jetpack/androidx/releases/multidex?hl=zh-cn
             //https://www.jianshu.com/p/9d9c2dbba223

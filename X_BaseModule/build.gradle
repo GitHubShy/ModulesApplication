@@ -36,6 +36,9 @@ android {
             buildConfigField 'String', 'JSONS_FOLDER', rootProject.ext.configurations["jsons_folder"]
             buildConfigField 'String', 'PICS_FOLDER', rootProject.ext.configurations["pics_folder"]
 
+            //数据库
+            buildConfigField 'String', 'APP_DATABASE_NAME', rootProject.ext.configurations["app_database_name"]
+
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
@@ -52,5 +55,6 @@ android {
 dependencies {
 
     api project(':Z_BaseLibraries')
+    annotationProcessor  rootProject.ext.dependencies["room-compiler"]
 
 }
