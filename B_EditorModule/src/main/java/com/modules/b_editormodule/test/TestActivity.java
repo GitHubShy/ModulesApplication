@@ -40,8 +40,10 @@ public class TestActivity extends BaseActivity {
         findViewById(R.id.button_2).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                rrc.setMusic_name("xxxxxxxxxxxxxxxxxxxxxxxxx");
-                model.setConfigs(rrc);
+                if (rrc != null) {
+                    rrc.setMusic_name("xxxxxxxxxxxxxxxxxxxxxxxxx");
+                    model.setConfigs(rrc);
+                }
             }
         });
 

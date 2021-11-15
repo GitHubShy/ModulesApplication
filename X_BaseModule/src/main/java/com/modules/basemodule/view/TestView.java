@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -51,8 +52,12 @@ public class TestView extends ConstraintLayout {
                 tv.setText(mData.toString());
             });
             findViewById(R.id.button).setOnClickListener(view -> {
-                mData.setMusic_name("FROMFFFFFF");
-                model.setConfigs(mData);
+                if (mData != null) {
+                    mData.setMusic_name("FROMFFFFFF");
+                    model.setConfigs(mData);
+                } else {
+                    Toast.makeText(getContext(),"没有从服务器请求到数据",Toast.LENGTH_LONG);
+                }
             });
 
         }
