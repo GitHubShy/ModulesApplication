@@ -19,9 +19,6 @@ public class Memory {
     @ColumnInfo(name = "value_key")
     public String valueKey;
 
-    public Memory() {
-    }
-
     public Memory(String pathKey, String valueKey) {
         this.pathKey = pathKey;
         this.valueKey = valueKey;

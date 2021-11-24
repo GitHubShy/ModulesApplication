@@ -8,29 +8,8 @@ dependencyResolutionManagement {
 }
 rootProject.name = "ModulesApplication"
 include ':App'
-include ':Z_BaseLibraries'
-include ':X_BaseModule'
-include ':B_EditorModule'
-
-//设置全局变量，在setting.gralde 和 build.gradle 中设置环境变量是不一样的
-gradle.ext.localFragmentation = false
-
-//在default.xml 中判断，是否有对应的project，如果有，repo sync 后 本地就有对应的代码，就配置使用本地工程代码
-def manifest = new XmlParser().parse("${rootProject.projectDir}/default.xml")
-manifest.project.each {
-    it.attributes().each { k, v ->
-        // path 对应的值包含 Fragmentation 字段
-        if (k == 'path' && v == 'FotoPlay/') {
-
-            gradle.ext.localFragmentation = true
-
-            //指定Fragmentation工程的路径，在本示例中，两个工程的目录是同级的
-            def path = '../Fragmentation'
-
-            include ':Fragmentation'
-            project(':Fragmentation').projectDir = new File(path)
+include ':BaseLibrary'
+include ':BaseModule'
+include ':SelfStudyModule'
 
 
-        }
-    }
-}

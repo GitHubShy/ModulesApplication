@@ -37,6 +37,6 @@ android {
 }
 dependencies {
 
-    api project(':B_EditorModule')
+    api project(':SelfStudyModule')
 
 }

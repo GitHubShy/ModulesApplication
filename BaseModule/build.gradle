@@ -54,7 +54,7 @@ android {
 
 dependencies {
 
-    api project(':Z_BaseLibraries')
+    api project(':BaseLibrary')
     annotationProcessor  rootProject.ext.dependencies["room-compiler"]
 
 }
