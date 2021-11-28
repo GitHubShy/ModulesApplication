@@ -1,4 +1,4 @@
-package com.modules.b_editormodule.bean;
+package com.modules.study.bean;
 
 /**
  * 素材基类

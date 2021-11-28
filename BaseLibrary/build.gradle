@@ -57,13 +57,13 @@ dependencies {
 
 
     //firebase
-    api platform(rootProject.ext.dependencies["firebase-bom"])
-    api rootProject.ext.dependencies["firebase-functions"]
-    api rootProject.ext.dependencies["firebase-analytics"]
-    api rootProject.ext.dependencies["firebase-storage"]
-    api rootProject.ext.dependencies["firebase-config"]
-    api rootProject.ext.dependencies["firebase-firestore"]
-    api rootProject.ext.dependencies["firebase-crashlytics"]
+//    api platform(rootProject.ext.dependencies["firebase-bom"])
+//    api rootProject.ext.dependencies["firebase-functions"]
+//    api rootProject.ext.dependencies["firebase-analytics"]
+//    api rootProject.ext.dependencies["firebase-storage"]
+//    api rootProject.ext.dependencies["firebase-config"]
+//    api rootProject.ext.dependencies["firebase-firestore"]
+//    api rootProject.ext.dependencies["firebase-crashlytics"]
 
     api fileTree(include: ['*.aar'], dir: 'libs')
 

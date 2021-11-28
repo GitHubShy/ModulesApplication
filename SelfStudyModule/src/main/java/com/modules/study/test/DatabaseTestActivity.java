@@ -1,11 +1,11 @@
-package com.modules.b_editormodule.test;
+package com.modules.study.test;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.widget.TextView;
 
-import com.modules.b_editormodule.R;
+import com.modules.study.R;
 import com.modules.basemodule.room.AppRoomDatabase;
 import com.modules.basemodule.room.entity.Memory;
 

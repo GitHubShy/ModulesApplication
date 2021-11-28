@@ -1,4 +1,4 @@
-package com.modules.b_editormodule.test;
+package com.modules.study.test;
 
 import androidx.lifecycle.ViewModelProvider;
 
@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.modules.b_editormodule.R;
+import com.modules.study.R;
 import com.modules.basemodule.activity.BaseActivity;
 import com.modules.basemodule.http.bean.ResponseRemoteConfig;
 import com.modules.basemodule.viewmodel.RemoteData;

@@ -1,4 +1,4 @@
-package com.modules.b_editormodule.bean;
+package com.modules.study.bean;
 
 public class AudioMaterial extends MaterialBase{
 

@@ -18,7 +18,7 @@ public class BaseApplication extends MultiDexApplication {
         SharedPreferencesManager.init(this);
 
         //统计信息
-        StatisticsManager.init(this);
+//        StatisticsManager.init(this);
 
 
     }
