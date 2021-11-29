@@ -9,7 +9,7 @@ import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
 
 import com.modules.study.R;
-import com.modules.baselibraries.LogManager;
+import com.modules.baselibrary.LogProxy;
 
 public class ParentView extends LinearLayout {
 
@@ -35,14 +35,19 @@ public class ParentView extends LinearLayout {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        LogManager.d("parent onTouchEvent");
+        LogProxy.d("parent onTouchEvent");
         return true;
     }
 
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
-        LogManager.d("parent onInterceptTouchEvent");
+        LogProxy.d("parent onInterceptTouchEvent");
         return false;
+    }
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        return super.dispatchTouchEvent(ev);
     }
 
     private void init() {

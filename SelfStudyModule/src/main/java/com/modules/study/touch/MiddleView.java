@@ -9,7 +9,7 @@ import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
 
 import com.modules.study.R;
-import com.modules.baselibraries.LogManager;
+import com.modules.baselibrary.LogProxy;
 
 public class MiddleView extends LinearLayout {
     public MiddleView(Context context) {
@@ -40,13 +40,13 @@ public class MiddleView extends LinearLayout {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        LogManager.d("middle onTouchEvent");
+        LogProxy.d("middle onTouchEvent");
         return true;
     }
 
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
-        LogManager.d("middle onInterceptTouchEvent");
+        LogProxy.d("middle onInterceptTouchEvent");
         return true;
     }
 }

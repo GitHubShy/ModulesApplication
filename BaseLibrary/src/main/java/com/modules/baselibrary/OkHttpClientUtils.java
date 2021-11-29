@@ -1,4 +1,4 @@
-package com.modules.baselibraries;
+package com.modules.baselibrary;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;

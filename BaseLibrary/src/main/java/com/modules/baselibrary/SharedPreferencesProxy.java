@@ -1,11 +1,11 @@
-package com.modules.baselibraries;
+package com.modules.baselibrary;
 
 import android.content.Context;
 
 import com.blankj.utilcode.util.StringUtils;
 import com.tencent.mmkv.MMKV;
 
-public class SharedPreferencesManager {
+public class SharedPreferencesProxy {
 
     public static String MMKV_ROOT_DIR;
     public static MMKV mmkv;
@@ -13,7 +13,7 @@ public class SharedPreferencesManager {
     public static void init(Context context) {
         MMKV_ROOT_DIR = MMKV.initialize(context);
         mmkv = MMKV.defaultMMKV();
-        LogManager.d(MMKV_ROOT_DIR);
+        LogProxy.d(MMKV_ROOT_DIR);
     }
 
     /**

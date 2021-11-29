@@ -11,7 +11,7 @@ import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 import androidx.sqlite.db.SupportSQLiteOpenHelper;
 
-import com.modules.baselibraries.LogManager;
+import com.modules.baselibrary.LogProxy;
 import com.modules.basemodule.BuildConfig;
 import com.modules.basemodule.room.dao.MemoryDao;
 import com.modules.basemodule.room.entity.Memory;
@@ -48,7 +48,7 @@ public abstract class AppRoomDatabase extends RoomDatabase {
                         super.onCreate(db);
                         String databasePath = db.getPath();
                         int version = db.getVersion();
-                        LogManager.d("databasePath="+databasePath+";version="+version);
+                        LogProxy.d("databasePath="+databasePath+";version="+version);
                     }
 
                     @Override
@@ -56,13 +56,13 @@ public abstract class AppRoomDatabase extends RoomDatabase {
                         super.onOpen(db);
                         String databasePath = db.getPath();
                         int version = db.getVersion();
-                        LogManager.d("databasePath="+databasePath+";version="+version);
+                        LogProxy.d("databasePath="+databasePath+";version="+version);
                     }
 
                     @Override
                     public void onDestructiveMigration(@NonNull SupportSQLiteDatabase db) {
                         super.onDestructiveMigration(db);
-                        LogManager.d("Database Destructive");
+                        LogProxy.d("Database Destructive");
                     }
                 })
                 .build();

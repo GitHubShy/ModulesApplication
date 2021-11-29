@@ -1,4 +1,4 @@
-package com.modules.baselibraries;
+package com.modules.baselibrary;
 
 
 import androidx.multidex.MultiDexApplication;
@@ -12,10 +12,10 @@ public class BaseApplication extends MultiDexApplication {
         super.onCreate();
 
         //Log
-        LogManager.init();
+        LogProxy.init();
 
         //SharedPreferences
-        SharedPreferencesManager.init(this);
+        SharedPreferencesProxy.init(this);
 
         //统计信息
 //        StatisticsManager.init(this);

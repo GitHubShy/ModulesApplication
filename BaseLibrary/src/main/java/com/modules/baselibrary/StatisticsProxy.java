@@ -1,10 +1,7 @@
-package com.modules.baselibraries;
-
-import android.content.Context;
-import android.os.Bundle;
+package com.modules.baselibrary;
 
 
-public class StatisticsManager {
+public class StatisticsProxy {
 
 //    private static FirebaseAnalytics mFirebaseAnalytics = null;
 //
