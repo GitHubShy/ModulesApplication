@@ -1,4 +1,4 @@
-package com.modules.study.test;
+package com.modules.study.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 

@@ -1,10 +1,10 @@
 package com.modules.baselibrary;
 
 
-import androidx.multidex.MultiDexApplication;
+import android.app.Application;
 
 
-public class BaseApplication extends MultiDexApplication {
+public class BaseApplication extends Application {
 
 
     @Override
@@ -22,4 +22,5 @@ public class BaseApplication extends MultiDexApplication {
 
 
     }
+
 }

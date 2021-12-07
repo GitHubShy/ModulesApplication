@@ -1,4 +1,4 @@
-package com.modules.study.test;
+package com.modules.study.activity;
 
 import androidx.lifecycle.ViewModelProvider;
 
@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.modules.baselibrary.AndroidUtils;
+import com.modules.baselibrary.LogProxy;
 import com.modules.study.R;
 import com.modules.basemodule.activity.BaseActivity;
 import com.modules.basemodule.http.bean.ResponseRemoteConfig;
@@ -48,4 +50,20 @@ public class TestActivity extends BaseActivity {
         });
 
     }
+
+    @Override
+    protected void initViews() {
+        AndroidUtils.getScreenRealSize(getApplication());
+    }
+
+    @Override
+    protected void initListeners() {
+
+    }
+
+    @Override
+    protected void initData() {
+
+    }
+
 }

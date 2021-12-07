@@ -1,5 +1,10 @@
 package com.modules.study.algorithm;
 
+/**
+ * 顾名思义，从第一开始，与后面一个比较，如果大，就交换位置，
+ *
+ * 所以每次内循环开始位置都为0，结束位置为 end <（length -1）倒数第二个
+ */
 public class BubbleSort {
 
     public static int[] data = new int[]{9, 9, 4, 7, 5, 3, 2, 1, 2, 8, 1};

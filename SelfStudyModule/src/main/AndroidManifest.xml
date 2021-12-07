@@ -7,10 +7,10 @@
             android:exported="true">
         </activity>
         <activity
-            android:name="com.modules.study.test.DatabaseTestActivity"
+            android:name="com.modules.study.activity.DatabaseTestActivity"
             android:exported="true" />
         <activity
-            android:name="com.modules.study.test.TestActivity"
+            android:name="com.modules.study.activity.TestActivity"
             android:exported="true" />
     </application>
 
