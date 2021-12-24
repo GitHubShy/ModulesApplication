@@ -25,7 +25,6 @@ public class TestActivity extends BaseActivity {
 
         TextView tv = findViewById(R.id.aa);
 
-
         RemoteData model = new ViewModelProvider(this).get(RemoteData.class);
         model.getConfigs().observe(this, responseRemoteConfig -> {
             tv.setText(responseRemoteConfig.toString());
