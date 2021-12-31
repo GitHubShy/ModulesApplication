@@ -5,4 +5,5 @@ package com.modules.basemodule;
  * 比如统计信息的event key
  */
 public class KeyStrings {
+
 }
