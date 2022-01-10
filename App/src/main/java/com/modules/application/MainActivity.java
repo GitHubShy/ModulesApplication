@@ -2,7 +2,10 @@ package com.modules.application;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
+import com.modules.baselibrary.LogProxy;
+import com.modules.baselibrary.NetworkUtils;
 import com.modules.study.activity.DatabaseTestActivity;
 import com.modules.study.activity.TestActivity;
 import com.modules.study.touch.TouchActivity;
@@ -36,5 +39,14 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void initData() {
 
+    }
+
+
+    public void getIP(View view) {
+//        LogProxy.d(NetworkUtils.getLocalIpAddress());
+//        LogProxy.d(NetworkUtils.getIPAddress(true));
+//        NetworkUtils.getLocalIp();
+        LogProxy.e(NetworkUtils.getLocalIp());
+        LogProxy.e(NetworkUtils.getHotspotIPAddress(this));
     }
 }
