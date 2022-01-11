@@ -4,12 +4,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.blankj.utilcode.util.NetworkUtils;
 import com.modules.baselibrary.LogProxy;
-import com.modules.baselibrary.NetworkUtils;
+import com.modules.baselibrary.NewNetworkUtils;
 import com.modules.study.activity.DatabaseTestActivity;
 import com.modules.study.activity.TestActivity;
 import com.modules.study.touch.TouchActivity;
 import com.modules.basemodule.activity.BaseActivity;
+import com.socks.library.KLog;
 
 public class MainActivity extends BaseActivity {
 
@@ -46,7 +48,9 @@ public class MainActivity extends BaseActivity {
 //        LogProxy.d(NetworkUtils.getLocalIpAddress());
 //        LogProxy.d(NetworkUtils.getIPAddress(true));
 //        NetworkUtils.getLocalIp();
-        LogProxy.e(NetworkUtils.getLocalIp());
-        LogProxy.e(NetworkUtils.getHotspotIPAddress(this));
+//        LogProxy.e(NetworkUtils.getLocalIp());
+//        LogProxy.e(NetworkUtils.getHotspotIPAddress(this));
+        NewNetworkUtils.getLocalIp(this,true);
+        KLog.d("NetworkUtils===",NetworkUtils.getIPAddress(true));
     }
 }
