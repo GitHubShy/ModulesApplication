@@ -185,66 +185,69 @@ public class NewNetworkUtils {
 
         NetworkType networkType = getNetworkType(context);
         boolean wifiApOpen = isWifiApOpen(context);
-        KLog.d(TAG, "NetworkType=" + networkType + "AP热点打开否=" + wifiApOpen);
+        KLog.d(TAG, "NetworkType=" + networkType + "----AP热点打开否=" + wifiApOpen);
 
         if (networkType == NetworkType.NETWORK_WIFI) {
             return getWifiIp(context);
-        } else {
+        }
 
-            try {
+        try {
 
-                Enumeration<NetworkInterface> networkInterfaces = NetworkInterface.getNetworkInterfaces();
+            Enumeration<NetworkInterface> networkInterfaces = NetworkInterface.getNetworkInterfaces();
 
-                //备选InetAddress
-                InetAddress candidateAddress = null;
+            //备选InetAddress
+            InetAddress candidateAddress = null;
 
-                while (networkInterfaces.hasMoreElements()) {
+            while (networkInterfaces.hasMoreElements()) {
 
-                    NetworkInterface networkInterface = networkInterfaces.nextElement();
+                NetworkInterface networkInterface = networkInterfaces.nextElement();
 
-                    if (!networkInterface.isUp() || networkInterface.isLoopback()) {
-                        continue;
-                    }
+                if (!networkInterface.isUp() || networkInterface.isLoopback()) {
+                    continue;
+                }
 
-                    KLog.d(TAG, "networkInterface===" + networkInterface.getName() + "---------DisplayName=" + networkInterface.getDisplayName());
+                KLog.d(TAG, "networkInterface===" + networkInterface.getName() + "---------DisplayName=" + networkInterface.getDisplayName());
 
-                    final Enumeration<InetAddress> inetAddresses = networkInterface.getInetAddresses();
+                final Enumeration<InetAddress> inetAddresses = networkInterface.getInetAddresses();
 
-                    while (inetAddresses.hasMoreElements()) {
+                //遍历该网卡下的所有ip，找到需要的
+                while (inetAddresses.hasMoreElements()) {
 
-                        final InetAddress inetAddress = inetAddresses.nextElement();
+                    final InetAddress inetAddress = inetAddresses.nextElement();
 
-                        KLog.d("The host address = " + inetAddress.getHostAddress());
+                    KLog.d("The inetAddress = " + inetAddress.toString());
 
-                        //排除LoopbackAddress和LinkLocalAddress
-                        if (!inetAddress.isLoopbackAddress() && !inetAddress.isLinkLocalAddress()) {
+                    //排除LoopbackAddress和LinkLocalAddress
+                    if (!inetAddress.isLoopbackAddress() && !inetAddress.isLinkLocalAddress()) {
 
-                            if (networkInterface.getName().startsWith(WLAN_PREFIX)) {
-                                KLog.d(TAG,"WLAN IP = " + getIpFromHostAddress(ip4, inetAddress.getHostAddress()));
-                                continue;
-                            } else {
-                                if (inetAddress.isSiteLocalAddress()) {//这就是我们要找的ip地址
-                                    String hostAddress = inetAddress.getHostAddress();
-                                    String ip = getIpFromHostAddress(ip4, hostAddress);
-                                    if (ip != null) return ip;
-                                } else {
-                                    //如果不是siteLocalAddress,记住它作为候选
-                                    if (candidateAddress == null) {
-                                        candidateAddress = inetAddress;
-                                    }
-                                }
-                            }
+                        //开启ap的情况下，会有局域网ip，过滤掉它，但是可以记作此备选ip
+                        if (networkInterface.getName().startsWith(WLAN_PREFIX)) {
+                            candidateAddress = inetAddress;
+                            KLog.d(TAG, "WLAN IP = " + inetAddress.getHostAddress());
+                            continue;
+                        }
 
+                        //这就是我们要找的ip地址
+                        if (inetAddress.isSiteLocalAddress()) {
+                            String hostAddress = inetAddress.getHostAddress();
+                            String ip = getIpFromHostAddress(ip4, hostAddress);
+                            if (ip != null) return ip;
+                        }
+
+                        //如果没找到site local address并且candidateAddress也为空，那就用这个做备选
+                        if (candidateAddress == null) {
+                            candidateAddress = inetAddress;
                         }
 
                     }
+
                 }
-                return getIpFromHostAddress(ip4, candidateAddress == null ? InetAddress.getLocalHost().getHostAddress() : candidateAddress.getHostAddress());
-            } catch (Exception e) {
-                e.printStackTrace();
             }
-            return DEFAULT_IP;
+            return getIpFromHostAddress(ip4, candidateAddress == null ? InetAddress.getLocalHost().getHostAddress() : candidateAddress.getHostAddress());
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+        return DEFAULT_IP;
 
     }
 
@@ -259,14 +262,16 @@ public class NewNetworkUtils {
         boolean isIPv4 = hostAddress.indexOf(58) < 0;
         if (ip4) {
             if (isIPv4) {
-                KLog.d("ipv4 address = " + hostAddress);
+                KLog.d("获取到ipv4 address = " + hostAddress);
                 return hostAddress;
             }
         } else if (!isIPv4) {
             int index = hostAddress.indexOf(37);
-            return index < 0 ? hostAddress.toUpperCase() : hostAddress.substring(0, index).toUpperCase();
+            String ipv6 = index < 0 ? hostAddress.toUpperCase() : hostAddress.substring(0, index).toUpperCase();
+            KLog.d("获取到ipv6 address = " + hostAddress);
+            return ipv6;
         }
-        return null;
+        return DEFAULT_IP;
     }
 
 //    public static String getHotspotIPAddress(Context context) {
