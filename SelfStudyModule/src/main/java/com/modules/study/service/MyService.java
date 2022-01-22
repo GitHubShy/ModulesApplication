@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
+import android.os.Message;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
@@ -26,6 +27,8 @@ public class MyService extends Service {
 
     private Runnable mRunnable;
 
+    private int mNumber;
+
     private ThreadFactory threadFactory = r -> new Thread() {
         @Override
         public void run() {
@@ -39,20 +42,27 @@ public class MyService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-        LogProxy.d("oncreate");
-        mHandler = new Handler(Looper.myLooper());
+        Log.d("shy","onCreate");
+        mHandler = new Handler(Looper.myLooper(), new Handler.Callback() {
+            @Override
+            public boolean handleMessage(@NonNull Message msg) {
+
+                return false;
+            }
+        });
         mRunnable = new Runnable() {
             @Override
             public void run() {
-                Log.d("shy","I am a runnable");
+                mHandler.postDelayed(mRunnable, 1000);
+                Log.d("shy", "I am a runnable=" + mNumber++);
             }
         };
-        mHandler.postDelayed(mRunnable,5000);
+        mHandler.postDelayed(mRunnable, 1000);
     }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        LogProxy.d("onStartCommand"+Thread.currentThread().getName());
+        Log.d("shy", Thread.currentThread().getName());
 //        mHandler.removeCallbacksAndMessages(null);
 //        // 延时任务
 //        thread = threadFactory.newThread(new Runnable() {
