@@ -4,6 +4,24 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
         jcenter() // Warning: this repository is going to shut down soon
+
+        maven {
+            url 'https://maven.aliyun.com/repository/public'
+        }
+        maven {
+            credentials {
+                username '620382428af5d39eb36918d1'
+                password '5Q-v4S(J]p-d'
+            }
+            url 'https://packages.aliyun.com/maven/repository/2185800-release-eqxKJa/'
+        }
+        maven {
+            credentials {
+                username '620382428af5d39eb36918d1'
+                password '5Q-v4S(J]p-d'
+            }
+            url 'https://packages.aliyun.com/maven/repository/2185800-snapshot-8RkkEE/'
+        }
     }
 }
 rootProject.name = "ModulesApplication"

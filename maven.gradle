@@ -1,0 +1,68 @@
+apply plugin: 'maven-publish'
+
+
+group = "io.github.githubshy"
+archivesBaseName = "BaseLibrary"
+version = "1.0"
+
+
+def publicationVersion = project.ARTIFACT_VERSION
+def coreGroupId = 'com.tencent.shadow.core'
+def corePath = 'projects/sdk/core'
+def dynamicGroupId = 'com.tencent.shadow.dynamic'
+def dynamicPath = 'projects/sdk/dynamic'
+
+def licenseName = 'The Apache License, Version 2.0'
+def licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+def sourceProjectUrl = 'https://github.com/GitHubShy/ModulesApplication.git'
+def scmConnection = 'scm:git:https://github.com/GitHubShy/ModulesApplication.git'
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            artifactId = 'BaseLibrary'
+            from components.java
+            pom {
+                name = 'BaseLibrary'
+                description = 'BaseLibrary description'
+                url = 'sourceProjectUrl'
+                licenses {
+                    license {
+                        name = licenseName
+                        url = licenseUrl
+                    }
+                }
+                developers {
+                    developer {
+                        id = '开发者ID'
+                        name = '开发者名'
+                        email = '开发者邮箱'
+                    }
+                }
+                scm {
+                    connection = scmConnection
+                    developerConnection = scmConnection
+                    url = sourceProjectUrl
+                }
+            }
+        }
+    }
+    repositories {
+        maven {
+            name = "OSSRH"
+            if (project.version.toString().endsWith("-SNAPSHOT")) {
+                url = "https://s01.oss.sonatype.org/content/repositories/snapshots"
+            } else {
+                url = "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/"
+            }
+            credentials {
+                username = findProperty("ossrhUsername") ?: System.getenv("OSSRH_USERNAME")
+                password = findProperty("ossrhPassword") ?: System.getenv("OSSRH_PASSWORD")
+            }
+        }
+    }
+}
+
+signing {
+    sign(publishing.publications.mavenJava)
+}

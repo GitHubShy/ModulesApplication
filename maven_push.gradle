@@ -1,0 +1,28 @@
+def myGroupId = 'com.senter.utils'
+def myArtifactId = 'utils'
+def myVersion = '1.4.79'
+
+apply plugin: 'maven-publish'
+
+publishing {
+    publications {
+        aliyun(MavenPublication) {
+            from components.android
+
+            groupId myGroupId
+            artifactId myArtifactId
+            version myVersion
+            artifact(sourceJar)
+//            artifact("$buildDir/outputs/aar/${project.getName()}-release.aar")
+        }
+    }
+    repositories {
+        maven {
+            credentials {
+                username '620382428af5d39eb36918d1'
+                password '5Q-v4S(J]p-d'
+            }
+            url "https://packages.aliyun.com/maven/repository/2185800-release-eqxKJa/"
+        }
+    }
+}
