@@ -13,7 +13,7 @@ android {
         targetSdk rootProject.ext.android.targetSdkVersion
         versionCode rootProject.ext.android.versionCodeVersion
         versionName rootProject.ext.android.versionNameVersion
-
+        manifestPlaceholders = [test_value: ".MainActivity",test_value_activity:"Activity 中的测试值"]
     }
 
     buildTypes {

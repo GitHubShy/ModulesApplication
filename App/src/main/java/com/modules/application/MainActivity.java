@@ -16,6 +16,7 @@ import com.blankj.utilcode.util.NetworkUtils;
 import com.modules.baselibrary.LogProxy;
 import com.modules.baselibrary.NewNetworkUtils;
 import com.modules.study.activity.DatabaseTestActivity;
+import com.modules.study.activity.SelfStudyActivity;
 import com.modules.study.activity.TestActivity;
 import com.modules.study.service.MyService;
 import com.modules.study.touch.TouchActivity;
@@ -48,7 +49,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
         mData = new ArrayList<>();
         Item item = new Item("service");
+        Item item2 = new Item("SelfActivity");
         mData.add(item);
+        mData.add(item2);
         mRecyclerView.setAdapter(new MyAdapter(mData,this));
     }
 
@@ -85,6 +88,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         if (text.equals("service")) {
             Intent i = new Intent(this,MyService.class);
             startService(i);
+        } else if (text.equals("SelfActivity")) {
+            Intent i = new Intent(this, SelfStudyActivity.class);
+            startActivity(i);
         }
     }
 

@@ -9,15 +9,21 @@ import android.widget.TextView;
 
 import com.modules.baselibrary.AndroidUtils;
 import com.modules.baselibrary.LogProxy;
+import com.modules.study.BuildConfig;
 import com.modules.study.R;
 import com.modules.basemodule.activity.BaseActivity;
 import com.modules.basemodule.http.bean.ResponseRemoteConfig;
 import com.modules.basemodule.viewmodel.RemoteData;
+import com.socks.library.KLog;
+
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class TestActivity extends BaseActivity {
 
     ResponseRemoteConfig rrc;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,7 +53,6 @@ public class TestActivity extends BaseActivity {
                 }
             }
         });
-
     }
 
     @Override

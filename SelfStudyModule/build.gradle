@@ -14,6 +14,9 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
+
+        buildConfigField "java.util.Map", "MAP_DATA", generateHashMapSentence(rootProject.ext.configurations.map_data)
+        buildConfigField "java.util.ArrayList", "LIST_DATA", generateArrayListSentence(rootProject.ext.configurations.list_data)
     }
 
     buildTypes {
@@ -33,4 +36,128 @@ dependencies {
 
     api project(':BaseModule')
     implementation rootProject.ext.dependencies["streams"]
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'com.google.android.material:material:1.3.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
 }
+
+def generateHashMapSentence(map) {
+    def originalSentence = 'new java.util.HashMap<String,String>(){{'
+    def endSentence = '}}'
+    map.each{key,value ->
+        def itemSentence = "put(\"$key\", \"$value\");"
+        originalSentence = originalSentence +itemSentence
+    }
+
+    originalSentence = originalSentence + endSentence
+}
+
+def generateArrayListSentence(list) {
+    def originalSentence = 'new java.util.ArrayList(){{'
+    def endSentence = '}}'
+    list.each{item ->
+        def itemSentence = "add(\"$item\");"
+        originalSentence = originalSentence +itemSentence
+    }
+
+    originalSentence = originalSentence + endSentence
+}
+
+task testMap() {
+    group 'shy'
+//    def result = findValue('app_external_dir_root')
+//    println result
+    def sentence = generateHashMapSentence(rootProject.ext.configurations.map_data)
+    println sentence
+}
+
+String findValue(findKey) {
+    def map = rootProject.ext.configurations
+//    map.each { key, value ->
+//        boolean isTrue = findKey == key
+//        println isTrue
+//        if (isTrue) {
+//            return value
+//        }
+//    }
+    map.find { key, value ->
+        if (key == findKey) {
+            return value
+        }
+    }
+}
+
+//测试闭包，获得其返回
+
+def t = {
+    println 'I am closure'
+    'I am a return'
+}
+
+println t()
+
+//测试闭包，测试传参数，闭包内部如果没有声明形参接收，默认是以it的变量的一个形参去接收实参。
+def t1 = {
+    println 'I am closure 2'
+    'I am a return, the parameter value is ' + it
+}
+//其实 t1 = t2
+def t2 = {
+    it ->
+        println 'I am closure 2'
+        'I am a return, the parameter value is ' + it
+}
+
+println t1('t1')
+
+//测试集合的count函数,min函数和max函数
+
+def list = [1, 2, 3, 4, 5]
+
+println list.count { it > 3 }
+println list.min {}
+println list.max()
+
+//测试 find,findAll
+def map = [1: [name: "六号表哥", age: 26],
+           2: [name: "Koobe", age: 23],
+           3: [name: "Jerry", age: 26],
+           4: [name: "Kai", age: 22],
+           5: [name: "kimi", age: 18]
+]
+//find 查找某个满足条件的元素
+def person = map.find {
+    if (it.key > 2) {
+        return it.value
+    }
+}
+
+println person
+
+//findAll 查找所有满足条件的元素
+
+def persons = map.findAll {
+    if (it.value.age > 23) {
+        return true
+    } else {
+        return false
+    }
+}
+
+println persons
+
+//every,是否所有的都满足一个条件
+
+def isAllAdult = map.every {
+    return it.value.age > 23
+}
+
+println isAllAdult
+
+//any 判断是否至少一个满足条件
+def isOneAdult = map.any {
+    return it.value.age > 23
+}
+
+println "是否至少有一个人大于23:$isOneAdult"
+

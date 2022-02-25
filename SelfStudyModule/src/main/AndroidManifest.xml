@@ -3,14 +3,18 @@
     package="com.modules.study">
 
     <application>
+        <activity
+            android:name=".activity.SelfStudyActivity"
+            android:exported="true" />
+
         <service
             android:name=".service.MyService"
             android:enabled="true"
-            android:exported="true"></service>
+            android:exported="true" />
 
         <activity
             android:name=".touch.TouchActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".activity.DatabaseTestActivity"
             android:exported="true" />
